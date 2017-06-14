@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
   ViewContainer: {
     flex: 1,
     flexDirection: 'column',
-    justifyContent: 'flex-start',
+    justifyContent: 'center',
     alignItems: 'stretch'
   }
 })
