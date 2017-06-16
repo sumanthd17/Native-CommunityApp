@@ -33,7 +33,7 @@ export default class PageControl extends Component {
     <TabBarIOS selectedTab={this.state.selectedTab}>
         <TabBarIOS.Item
           selected={this.state.selectedTab === 'profile'}
-          //icon={{uri: 'https://n7best.gitbooks.io/react-weui-docs/content/logo.png'}}
+          systemIcon="favorites"
           onPress={() => {
             this.setState({
               selectedTab: 'profile'
@@ -44,7 +44,7 @@ export default class PageControl extends Component {
 
           <TabBarIOS.Item
             selected={this.state.selectedTab === 'discover'}
-            //icon={{uri:'contacts'}}
+            systemIcon="most-viewed"
             onPress={() => {
               this.setState({
                 selectedTab: 'discover'
@@ -52,6 +52,17 @@ export default class PageControl extends Component {
             }}>
               <Discover />
             </TabBarIOS.Item>
+
+            <TabBarIOS.Item
+              selected={this.state.selectedTab === 'discover'}
+              systemIcon="search"
+              onPress={() => {
+                this.setState({
+                  selectedTab: 'discover'
+                });
+              }}>
+                <Discover />
+              </TabBarIOS.Item>
       </TabBarIOS>
     );
   }

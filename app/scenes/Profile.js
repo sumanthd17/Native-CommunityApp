@@ -16,7 +16,7 @@ export default class Profile extends Component {
       uri: 'https://n7best.gitbooks.io/react-weui-docs/content/logo.png'
     };
     return(
-      <View style={{justifyContent: 'space-around', alignItems: 'center'}}>
+      <View style={{marginTop: 90,alignItems: 'center'}}>
         <StatusbarBackground />
 
         <View style={styles.profilePicture}>
