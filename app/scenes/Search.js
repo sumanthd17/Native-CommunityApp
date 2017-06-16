@@ -8,14 +8,14 @@ import {
 import ViewContainer from '../components/ViewContainer';
 import StatusbarBackground from '../components/StatusbarBackground';
 
-export default class Discover extends Component {
+export default class Search extends Component {
   render() {
     return (
       <ViewContainer>
         <StatusbarBackground />
         <View style={styles.container}>
           <Text>
-            Discover View!
+            Search View!
           </Text>
         </View>
       </ViewContainer>
