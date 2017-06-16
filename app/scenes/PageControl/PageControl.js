@@ -10,25 +10,21 @@ import {
   Icon,
 } from 'react-native';
 
-//import PageControl from 'react-native-page-control';
 import ViewContainer from '../../components/ViewContainer';
 import StatusbarBackground from '../../components/StatusbarBackground';
-//import PageControlIOS from 'react-native-pagecontrol';
 import Profile from '../Profile'
 import Discover from '../Discover'
-//import Icon from 'react-native-vector-icons/FontAwesome';
-//const myIcon = (<Icon name="rocket" size={30} color="#900" />)
+import Search from '../Search'
 
 export default class PageControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'profile',
+      selectedTab: 'search',
     }
   };
 
   render() {
-    let myIcon = '../../Resourses/icon2.png';
     return(
     <TabBarIOS selectedTab={this.state.selectedTab}>
         <TabBarIOS.Item
@@ -54,14 +50,14 @@ export default class PageControl extends Component {
             </TabBarIOS.Item>
 
             <TabBarIOS.Item
-              selected={this.state.selectedTab === 'discover'}
+              selected={this.state.selectedTab === 'search'}
               systemIcon="search"
               onPress={() => {
                 this.setState({
-                  selectedTab: 'discover'
+                  selectedTab: 'search'
                 });
               }}>
-                <Discover />
+                <Search />
               </TabBarIOS.Item>
       </TabBarIOS>
     );
