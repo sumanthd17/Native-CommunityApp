@@ -13,14 +13,18 @@ import {
 import ViewContainer from '../../components/ViewContainer';
 import StatusbarBackground from '../../components/StatusbarBackground';
 import Profile from '../Profile'
+<<<<<<< HEAD
 import Discover from '../Discover/Discover'
+=======
+import Discover from '../Discover'
+>>>>>>> 7730c9996443ac23bb00a0dce388dc05102f55fb
 import Search from '../Search'
 
 export default class PageControl extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedTab: 'profile',
+      selectedTab: 'search',
     }
   };
 
