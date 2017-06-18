@@ -10,6 +10,8 @@ import {
 import ViewContainer from '../../components/ViewContainer'
 import StatusbarBackground from '../../components/StatusbarBackground'
 import { styles } from './styles'
+import { firebaseRef } from '../../Services/Firebase'
+import { Actions } from 'react-native-router-flux'
 
 export default class Login extends Component {
   constructor(props) {
@@ -20,6 +22,21 @@ export default class Login extends Component {
       password: '',
       confirm: '',
     }
+    this._register = this._register.bind(this)
+  }
+
+  _register() {
+    if (this.state.password == this.state.confirm){
+      firebaseRef.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).catch(function(error) {
+        // Handle Errors here.
+        console.log(error.code)
+        console.log(error.message)
+      });
+      Actions.pagecontrol()
+    } else {
+      console.log("password's did not match")
+    }
+
   }
 
   render() {
@@ -67,7 +84,7 @@ export default class Login extends Component {
           </View>
           <View style={styles.inputButtons}>
             <View style={styles.login}>
-                <TouchableOpacity style={styles.loginButton}>
+                <TouchableOpacity style={styles.loginButton} onPress={this._register}>
                   <Text style={styles.loginButtonText}>CREATE ACCOUNT</Text>
                 </TouchableOpacity>
             </View>

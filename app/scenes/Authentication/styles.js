@@ -4,6 +4,7 @@ export const styles = StyleSheet.create({
   logo: {
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 40,
   },
   inputButtons: {
     marginTop: 40,
@@ -45,5 +46,19 @@ export const styles = StyleSheet.create({
     backgroundColor: 'black',
     marginLeft: 20,
     marginRight: 20,
+  },
+  social: {
+    alignItems: 'center',
+    borderWidth: 2,
+    borderColor: '#38579D',
+    padding: 5,
+    margin: 20,
+    borderRadius: 10,
+  },
+  socialText: {
+    fontSize: 16,
+    color: '#38579D',
+    fontWeight: "400",
+    marginLeft: 10,
   }
 })
