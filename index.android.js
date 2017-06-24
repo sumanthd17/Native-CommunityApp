@@ -1,13 +1,62 @@
-import React, { Component } from 'react';
-import { AppRegistry } from 'react-native';
-import App from './app/App';
+/**
+ * Sample React Native App
+ * https://github.com/facebook/react-native
+ * @flow
+ */
 
-export default class AwesomeProject extends Component {
+import React, { Component } from 'react';
+import {
+  AppRegistry,
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity
+} from 'react-native';
+
+import FBSDK, { LoginManager } from 'react-native-fbsdk';
+
+export default class test extends Component {
+
+  _fbAuth() {
+    LoginManager.logInWithReadPermissions(['public_profile']).then(function(result) {
+      if (result.isCancelled) {
+        console.log('Login was cancelled');
+      } else {
+        console.log('Login was success' + result.grantedPermissions.toString());
+      }
+    }, function(error) {
+      console.log('An error occured: ' + error);
+    })
+  }
+
   render() {
     return (
-      <App />
+      <View style={styles.container}>
+        <TouchableOpacity onPress={this._fbAuth()}>
+          <Text>facebook</Text>
+        </TouchableOpacity>
+      </View>
     );
   }
 }
 
-AppRegistry.registerComponent('AwesomeProject', () => AwesomeProject);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
+
+AppRegistry.registerComponent('test', () => test);
